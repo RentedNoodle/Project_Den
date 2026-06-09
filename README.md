@@ -214,6 +214,3 @@ BSD 3-Clause
 ---
 
 *Someone who stays.*
-
-
-**Hydra Kernel** — One persistent kernel, many heads. 15 operation types dispatched through a single lock-free work queue. One SM, one launch, never returns. Like the mythological Hydra: cut off one head, two grow back.
