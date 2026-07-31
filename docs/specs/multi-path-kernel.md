@@ -217,7 +217,7 @@ Pre-quantized QK in FP4 with block scaling, PV path in BF16. Adaptation: pre-qua
 ## 12. Key Constraints
 
 - SM120 SMEM: 99 KB hard limit per block — `static_assert(SMEM_BYTES <= 99 * 1024)` in every kernel
-- CUDA 12.8 only (13.2 sm_120a not supported)
+- CUDA 13.3 required (12.x/13.2 ptxas rejects `sm_120a`/`mxf4nvf4`)
 - Register split: 232/40 via `setmaxnreg`, no `--maxrregcount=128` global
 - OMMA 3-operand scale format required: `(uint32 sfa, uint16 bid, uint16 tid_sf)`
 - No tcgen05, WGMMA, TMEM, TMA multicast — dead on consumer SM120

@@ -485,7 +485,7 @@ void holographic_attend(
 }
 ```
 
-**Constraints:** Only for DREAM/CONSOLIDATE modes where latency is acceptable. CONVERSATION uses standard attention. Requires cuFFT (already in CUDA 12.8 toolkit).
+**Constraints:** Only for DREAM/CONSOLIDATE modes where latency is acceptable. CONVERSATION uses standard attention. Requires cuFFT (ships with the CUDA 13.3 toolkit).
 
 ### Tier 2d: Offline Tool — Topological Layer Pruning
 
@@ -527,7 +527,7 @@ Offline analysis tool that computes persistent homology on per-layer activation 
 | `den_holographic_attention.cuh` | Create | ~150 | 2 |
 | `tools/den_topology_prune.py` | Create | ~200 | 2 |
 
-Zero new system dependencies (cuFFT ships with CUDA 12.8).
+Zero new system dependencies (cuFFT ships with CUDA 13.3).
 
 ---
 

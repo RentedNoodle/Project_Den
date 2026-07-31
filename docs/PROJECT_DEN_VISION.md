@@ -50,7 +50,7 @@ The RTX 5070 Ti is not just a compute device. It is the sensory-motor system. Ev
 - Fragment mapping: (a0,a2)->d0/d1, (a1,a3)->d2/d3
 - Scale Superposition: sfa x sfb = 65,025 effective scales at zero runtime cost
 - `mxf8f6f4` 1X UE8M0: FALLBACK only (~35 cycles vs ~29)
-- FORBIDDEN: tcgen05, WGMMA, TMEM, TMA multicast, CUDA 13.x runtime, `--maxrregcount=128`
+- FORBIDDEN: tcgen05, WGMMA, TMEM, TMA multicast, `--maxrregcount=128` (CUDA 13.3 REQUIRED — 12.x/13.2 ptxas rejects `sm_120a`/`mxf4nvf4`)
 
 ---
 
