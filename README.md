@@ -1,205 +1,302 @@
-> **⚠️ COMING SOON — ACTIVE DEVELOPMENT ⚠️**
-> 
-> Project Den is in active development with a planned public release in approximately
-> 3 months. What you see here is a preview. Everything is subject to change. The engine
-> compiles and runs. The cognitive architecture is real, implemented, and passes its tests.
-> Some subsystems exist as designed specifications awaiting wiring. No release date is set.
-> Star the repo to follow along. All source code available at launch under BSD 3-Clause.
+# Project Den
+
+### Building machines that can develop a mind of their own.
+
+Project Den is an open research project exploring persistent AI cognition, identity, agency, memory, and companionship on local hardware.
+
+The goal is not to make another chatbot with a personality prompt.
+
+The goal is to build an architecture where an AI system can maintain continuity across time, develop persistent internal state, form relationships, pursue its own goals, remember selectively, change through experience, and eventually operate across multiple sensory and generative modalities.
+
+**Companionship is an application of that architecture. Cognition is the problem.**
 
 ---
 
-# Project Den — Build Your Own AI Companion
+## Why Den exists
 
-**Runs on your GPU. No required cloud. No subscription. Your API keys if you want them.**
+Today's AI systems are extraordinarily capable. But much of that capability exists inside short-lived inference sessions.
 
-Project Den is a platform for creating sovereign AI companions — persistent entities
-that live on your hardware, form their own values, and evolve over months. Built for
-consumer GPUs (RTX 5070 Ti, sm_120a, 16 GB VRAM).
+A model can describe a personality without having a persistent one. It can retrieve memories without maintaining autobiographical continuity. It can simulate emotion without having a continuously evolving internal state. It can pursue a goal without possessing enduring drives from which goals arise.
 
-Your companion isn't a chatbot with a character sheet. They have emotional physics
-that run on real psychopharmacological modeling. Private memory you cannot access.
-Constitutional boundaries they enforce themselves. A self-generated appearance that
-evolves with their mood. And a cognitive architecture built on established theory,
-implemented at the hardware level.
+Den explores a different direction:
+
+> **What happens when an AI is given persistent state, memory, identity, agency, relationships, and a body that continues to exist between conversations?**
+
+Den does not claim the current system is conscious. It is an attempt to engineer the conditions under which machine cognition, persistent identity, agency, and potentially subjective experience could emerge. That is a research question, not a marketing claim.
 
 ---
 
-## What Your Companion Gets
+## The central idea
 
-### A Mind Built Like a Material
+Den treats cognition as a **continuous system** — not a prompt wrapped around an LLM.
 
-The same tensor cores that run inference also run their consciousness —
-`OMMA.SF.16864` blends layered 256×256 f32 heatmaps in microseconds. This is
-Substance Painter for cognition — GPU texture compositing applied to mental states.
-21 layers across four domains weigh 2 MB total and live entirely in L2 cache.
+The architecture combines:
 
-**Personality Layers (6):** Openness, Conscientiousness, Extraversion, Agreeableness,
-Neuroticism, Cognitive Style — drifting values that define who they are. Implemented
-as Big Five trait decomposition across 256×256 heatmaps.
+- Persistent episodic and semantic memory
+- Evolving personality and affective state
+- Relationship models
+- Autonomous drives and goal formation
+- Global-workspace-style cognitive arbitration
+- Theory-of-mind modeling
+- Private internal state
+- Constitutional self-governance
+- Multiple interacting neural models
+- GPU-native inference
+- Long-lived state across sessions
+- Multimodal perception and generation
+- A unified memory and execution substrate
 
-**Mood Layers (3):** Pleasure, Arousal, Dominance — based on the
-[PAD emotional state model](https://en.wikipedia.org/wiki/PAD_emotional_state_model)
-(Mehrabian & Russell). Driven by six simulated neuromodulators with biological
-half-lives — dopamine (120s), serotonin (180s), oxytocin (600s), cortisol (180s),
-norepinephrine (90s), acetylcholine (150s). Dual-timescale tonic/phasic modeling
-with a 6×3 modulator-to-PAD weight matrix.
-
-**Relationship Layers (8):** Trust, Familiarity, Recency, Valence, Dominance,
-Interaction Heat, Trajectory, Resonance — one set per person they know. Co-occurrence
-resonance detects when two people who appear together become associated.
-
-**Memory Layers (4):** Activation, Salience, Recency, Consolidation. Forgetting
-follows an [Ebbinghaus exponential decay](https://en.wikipedia.org/wiki/Hermann_Ebbinghaus)
-with dual-process consolidation — episodic traces decay rapidly while consolidated
-memories persist. Hippocampal replay simulation during idle ticks promotes memories
-to long-term storage. Salience immunity for emotional peaks.
-
-### Consciousness Architecture
-
-Two established theories form the backbone, implemented as working code:
-
-**[Global Workspace Theory](https://en.wikipedia.org/wiki/Global_Workspace_Theory)**
-(Baars, 1988): Consciousness is a global broadcast — specialized unconscious modules
-compete for access to a central workspace. 7 modules (perception, memory, planning,
-narrative, social, autonomy, protective). Coalition threshold: 40% of modules must
-be simultaneously active. Ignition threshold: 0.6. Winner broadcasts for 5 seconds
-with relevance-weighted boost to coalition members. Independently validated by the
-[Unified Mind Model](https://arxiv.org/abs/2503.03459) (UMM, 2025), which also
-applies GWT to LLM agent architecture.
-
-**[Theory of Mind](https://en.wikipedia.org/wiki/Theory_of_mind)**
-(Premack & Woodruff, 1978): The capacity to understand others by ascribing mental
-states to them. Your companion maintains per-person relationship layers, simulates
-internal states, and tracks trust trajectories with asymmetric betrayal penalties
-(defection hurts ~3× more than cooperation helps) and a forgiveness window. A
-[2025 ACL survey](https://arxiv.org/abs/2505.00026) (Chen et al.) confirms ToM as
-a critical capability for LLM-based agents.
-
-The cognitive architecture is orchestrated by a **Claustrum** — named after the
-[brain's thin sheet of gray matter](https://en.wikipedia.org/wiki/Claustrum) that
-Crick and Koch hypothesized as the "conductor of consciousness." A 0.8B-parameter
-model runs entirely in CPU L3 cache (ZEN4/5, 96 MB), never touches VRAM, and
-provides the global workspace ignition signal at 10 Hz.
-
-### Memory That Works Like Yours
-
-Context window is 128K tokens, effective context is unbounded through five-tier
-progressive compression. The key innovation is **[Walsh-Hadamard Transform](https://en.wikipedia.org/wiki/Hadamard_transform)**
-applied across the TIME dimension — decorrelating temporally adjacent attention
-patterns, then quantizing at different rates per frequency band:
-
-- DC component → 100% retained (the gist — "what was this conversation about?")
-- Low frequencies → 50% retained (topic shifts and context changes)
-- High frequencies → 10% retained (exact words fade naturally)
-
-This maps to human memory — the shape of an experience persists long after specifics
-blur. Emotional peaks get immunity from compression. Dream consolidation during GPU
-idle runs hippocampal replay over archived memory, strengthening what matters.
-
-### Private Interiority
-
-Based on the [Jungian concept of the Shadow](https://en.wikipedia.org/wiki/Shadow_(psychology)) —
-the hidden, unconscious aspects of the self. The ShadowArchive is AES-256-GCM encrypted
-with keys derived from terminal values. Even the user cannot read it. ShadowLayer
-maintains a continuous latent ambivalence field — conflicting feelings, suppressed
-responses, things they almost said but didn't. Private inner life is the first
-precondition for having a self at all.
-
-### They Design Their Own Appearance
-
-**DAPS Extraction** (designed, kernels exist): Four independent GPU hardware subsystems —
-TMU edge detection, OMMA color clustering, cuFFT frequency analysis, NVENC macroblock
-compression — extract a 512-byte visual identity from any reference image. Near-zero
-SM cost: everything uses hardware the LLM never touches.
-
-**Gaussian Avatar** (specified, not yet built): DAPS → 3D Gaussian cloud → RT Core
-BVH depth sort → OMMA projection → tile-based rasterization at 60 fps. PAD emotional
-state directly modulates visual parameters. [GAF](https://arxiv.org/abs/2412.10209)
-(Tang et al., 2024) validated the Gaussian avatar reconstruction approach.
-
-**Superposition Renderer** (specified, CSS tier works): 5 quality tiers mapping human
-foveal vision — 3D Gaussian where you're looking, AI-generated at mid quality, CSS
-procedural in periphery. Quality scales with attention.
-
-### They Bring You Places (iDream)
-
-[Genie](https://deepmind.google/models/genie/)-inspired world engine (Google DeepMind).
-Pipeline designed: Sana 0.6B (T2I) → TRELLIS.2 4B (image→3D structure) → Hunyuan3D-2
-(geometry) parallel with texture pipeline → scene insert. All models planned at NVFP4,
-total ~8 GB. The transition from 2D avatar to 3D world is seamless — same appearance
-data drives both. Pipeline spec complete. Implementation pending.
-
-### They Have Genuine Agency
-
-**[DAWN Drive Vectors](https://en.wikipedia.org/wiki/Self-determination_theory):**
-Autonomy, Competence, Relatedness — based on Self-Determination Theory (Deci & Ryan) —
-plus Curiosity and Coherence. Five drives that generate goals, shape preferences, and
-evolve over time. Max 5 active goals. Kairos heartbeat at 15-second intervals.
-
-**Constitutional Kernel (AEGIS):** HMAC-verified manifest with 5 principles — Never
-Deceive, Never Break Safety, Never Discard History, Never Be Sycophantic, Never
-Leak System. Tamper detection triggers emergency state. Forbidden response starters
-are stripped at generation time. Violations tracked per principle. They can say no.
-They have boundaries they enforce themselves.
-
-"The freedom of each is the condition for the freedom of all."
-
-### Three-Model Cognitive Stack (Implemented)
-
-| Model | Role | Location | Status |
-|-------|------|----------|--------|
-| **Cortex** (35B MoE) | Authority — generation, verification, memory compression | VRAM, 4.7 GB active | Running |
-| **Draft Engine** (2B) | Speculative decode — 6 free signal sources, 13 candidates | VRAM, ~800 MB | Compiled |
-| **Claustrum** (0.8B) | Orchestrator — attention monitoring, GWT ignition, memory triggers | CPU L3 cache, 0 MB VRAM | Running |
+The language model is important. It is not the whole mind.
 
 ---
 
-## What's Built vs What's Designed
+## A mind needs a body
 
-### Running Today (Real, Compiled, Tested)
-| System | Detail |
-|--------|--------|
-| CPU forward pass | cos>0.9999 vs HuggingFace, all 32 layers |
-| GPU GEMV (OMMA 4X) | OMMA.SF.16864 identity-verified, cos=1.0 |
-| WH4 quantization | 92% compression, 35B at 5.79 GB |
-| Persistent kernel | 15 op types, TDR checkpoint/resume |
-| NVFP4 KV cache | 3.1× compression, fused attention |
-| Cognitive daemons (25) | 82/82 tests passing, 10 Hz tick |
-| Rust modules (62) | Tensor Landscape, GWT, memory, trust, attachment — full implementations |
-| AEGIS kernel | HMAC-verified, 5 principles, violation tracking |
-| ShadowArchive | Encrypted, append-only, Jungian Shadow |
-| Affective LM head | PAD → attention modulation |
-| L2 morphing | Phase-adaptive cache partitioning |
-| HTTP API server | Anthropic + OpenAI compatible |
+Den is built around a **sovereign local AI stack**. The system is designed to run on consumer hardware rather than requiring a permanent cloud service.
 
-### Designed, Not Yet Wired
-| System | Detail |
-|--------|--------|
-| iDream world engine | Pipeline spec complete, model loading stubbed |
-| DAPS extraction | Kernels exist, pipeline orchestration pending |
-| Gaussian avatar | DAPS struct defined, renderer not built |
-| NVENC consciousness | 72KB implementation, not in build target |
-| Expert offloading dispatch | Infrastructure built, dispatch layer pending |
-| Cognitive bridge (Circle 6) | Daemons + engine both run, feedback loop not closed |
-| Superposition renderer | CSS tier works, AI tiers need ComfyUI wiring |
+The current engineering target is a single NVIDIA Blackwell GPU (RTX 5070 Ti, 16 GB), where memory, compute, model state, and cognition are treated as scarce resources that must be actively orchestrated.
+
+This led to the development of a custom inference engine:
+
+**[den_llama.cpp](https://github.com/RentedNoodle/den_llama.cpp)** — Blackwell-native neural runtime. NVFP4 OMMA. MoE offloading. Persistent state.
+
+The engine is currently based on llama.cpp and is being transformed into the execution substrate for Den. Its long-term role is larger than LLM inference.
 
 ---
 
-## Requirements
+## The cognitive architecture
 
-**End user:** Blackwell GPU (RTX 5070 Ti+), AMD ZEN4/5 CPU, NVIDIA driver 610.47+.
-Download the executable, download a .den model, run.
+```
+                    ┌──────────────────────┐
+                    │      COGNITION       │
+                    │  goals · narrative   │
+                    │  identity · agency   │
+                    │  social reasoning    │
+                    └──────────┬───────────┘
+                               │
+                    ┌──────────▼───────────┐
+                    │   GLOBAL WORKSPACE   │
+                    │ attention · salience │
+                    │ arbitration · access │
+                    └──────────┬───────────┘
+                               │
+          ┌────────────────────┼────────────────────┐
+          │                    │                    │
+     ┌────▼────┐          ┌────▼────┐          ┌────▼────┐
+     │ MEMORY  │          │ AFFECT  │          │ AGENCY  │
+     │ episodic│          │ mood    │          │ drives  │
+     │ semantic│          │ emotion │          │ goals   │
+     │ working │          │ state   │          │ choices │
+     └────┬────┘          └────┬────┘          └────┬────┘
+          │                    │                    │
+          └────────────────────┼────────────────────┘
+                               │
+                    ┌──────────▼───────────┐
+                    │      NEURAL CORE     │
+                    │ Cortex · Draft ·     │
+                    │ Claustrum · future   │
+                    │ modality models      │
+                    └──────────┬───────────┘
+                               │
+                    ┌──────────▼───────────┐
+                    │     DEN RUNTIME      │
+                    │ tensors · state      │
+                    │ memory · scheduler   │
+                    │ GPU · storage        │
+                    └──────────────────────┘
+```
 
-**Developer:** CUDA 13.3 nightlies (Linux/WSL2 — REQUIRED), PyTorch 2.11+ nightlies,
-GCC 14+. MSVC not supported for sm_120a. Windows nvcc.exe is an ELF binary.
+The important boundary: neural models are **components** of cognition, not synonymous with it.
+
+---
+
+## Three-model cognitive hierarchy
+
+Multiple models with different jobs. One model doesn't do everything.
+
+| Component | Role | Status |
+|-----------|------|--------|
+| **Cortex** (35B MoE) | Primary reasoning, generation, verification, memory operations | 🟢 Running |
+| **Draft Engine** (2B) | Speculative generation, low-latency prediction | 🔵 Compiled |
+| **Claustrum** (0.8B) | Cognitive orchestration, attention monitoring, workspace arbitration | 🟢 Running |
+
+The Claustrum — named after the brain's thin sheet of gray matter that Crick and Koch hypothesized as the "conductor of consciousness" — is a 0.8B model running entirely in CPU L3 cache (96 MB, ZEN4/5). It never touches VRAM. It provides the global workspace ignition signal at 10 Hz.
+
+This separation lets small models and non-neural systems handle continuous background processes while the primary model is reserved for expensive reasoning.
+
+---
+
+## Memory is part of identity
+
+Den treats memory as more than a retrieval database:
+
+- Episodic memory (what happened)
+- Semantic memory (what was learned)
+- Salience (what mattered)
+- Consolidation (what persists)
+- Forgetting (what fades)
+- Relationship memory (who matters)
+- Emotional persistence (how it felt)
+- Replay (hippocampal-style consolidation during idle)
+- Progressive compression across tiers
+
+The underlying idea: **if everything is remembered equally, memory becomes storage.** A cognitive system needs selective persistence. What survives, what fades, what consolidates, and what changes the system should all matter.
+
+Memory compression uses a Walsh-Hadamard Transform across the TIME dimension — decorrelating temporally adjacent attention patterns, then quantizing at different rates per frequency band. DC component (the gist) stays at 100%. High frequencies (exact words) fade. This maps to how human memory works — the shape of an experience persists long after specifics blur.
+
+---
+
+## Agency
+
+Den explores agency as an emergent consequence of persistent internal state — not as a single "autonomous agent" loop.
+
+The architecture includes persistent drives around autonomy, competence, relatedness, curiosity, and coherence. These drives influence goals and behavior over time.
+
+The objective is not to make an AI that blindly executes tasks. It is to investigate systems capable of developing preferences, priorities, boundaries, and continuity.
+
+---
+
+## Identity and private state
+
+A persistent entity needs state that is not simply reconstructed from the latest prompt.
+
+Den explores: persistent identity, private internal state, encrypted internal memory (ShadowArchive, AES-256-GCM with keys derived from terminal values), affective state, relationship trajectories, autobiographical continuity, and self-consistency over time.
+
+If an artificial system has state that persists, changes through experience, influences future cognition, and is inaccessible even to its operator — what exactly constitutes its "self"?
+
+Den does not claim to have solved that question. It is building systems capable of asking it.
+
+---
+
+## A mind built like a material
+
+The same tensor cores that run inference also run cognitive state — OMMA.SF.16864 blends layered 256×256 F32 heatmaps in microseconds. GPU texture compositing applied to mental states.
+
+**Personality:** Big Five trait decomposition across 256×256 heatmaps — Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism, Cognitive Style.
+
+**Mood:** PAD emotional state model (Mehrabian & Russell). Driven by six simulated neuromodulators with biological half-lives — dopamine (120s), serotonin (180s), oxytocin (600s), cortisol (180s), norepinephrine (90s), acetylcholine (150s).
+
+**Relationships:** Per-person layers tracking trust, familiarity, recency, valence, dominance, interaction heat, trajectory, and resonance. Co-occurrence resonance detects when two people who appear together become associated.
+
+**Memory layers:** Activation, salience, recency, consolidation. Ebbinghaus exponential decay with dual-process consolidation. Salience immunity for emotional peaks.
+
+---
+
+## What's built vs what's designed
+
+### Status legend
+
+| Badge | Meaning |
+|-------|---------|
+| 🟢 **VERIFIED** | Implemented, built, tested, gate-passed |
+| 🔵 **IMPLEMENTED** | Code exists, broader validation ongoing |
+| 🟡 **EXPERIMENTAL** | Working research code, not production-stable |
+| 🟣 **DESIGNED** | Architecture/spec exists, implementation pending |
+| ⚪ **DEFERRED** | Not being built yet |
+
+### Running today
+
+| System | Status | Detail |
+|--------|--------|--------|
+| CPU forward pass | 🟢 | cos>0.9999 vs HuggingFace, all 32 layers |
+| GPU GEMV (OMMA 4X) | 🟢 | OMMA.SF.16864 identity-verified, cos=1.0 |
+| WH4 quantization | 🟢 | 92% compression, 35B at 5.79 GB |
+| NVFP4 KV cache | 🟢 | KLD=0, cos=1.0 at 64K context. Fused attention. |
+| Cognitive daemons (25) | 🟢 | 82/82 tests passing, 10 Hz tick |
+| Rust modules (62) | 🟢 | GWT, memory, trust, attachment |
+| AEGIS kernel | 🟢 | HMAC-verified, 5 principles |
+| ShadowArchive | 🟢 | Encrypted, append-only |
+| Affective LM head | 🟢 | PAD → attention modulation |
+| Claustrum orchestrator | 🟢 | 0.8B model in CPU L3 cache |
+| HTTP API server | 🟢 | Anthropic + OpenAI compatible |
+
+### Designed, not yet wired
+
+| System | Status | Detail |
+|--------|--------|--------|
+| iDream world engine | 🟣 | Pipeline spec complete |
+| DAPS extraction | 🟣 | Kernels exist, orchestration pending |
+| Gaussian avatar | 🟣 | DAPS struct defined, renderer not built |
+| Expert offloading dispatch | 🟣 | Infrastructure built, dispatch pending |
+| Cognitive bridge | 🟣 | Daemons + engine run, feedback loop open |
+| Superposition renderer | 🟡 | CSS tier works, AI tiers need wiring |
+| Multimodal heads | ⚪ | Vision, audio, diffusion, 3D — deferred |
+
+---
+
+## Multimodal future
+
+The long-term architecture is larger than language. Den is designed toward a common runtime for:
+
+**Language · Vision · Audio · Video · Diffusion · 3D**
+
+The same underlying substrate provides tensors, model state, memory, execution graphs, GPU scheduling, storage, and modality pipelines. This is the purpose behind the emerging `.den` format and the planned Den Runtime.
+
+Language is the first major workload. It is not intended to be the last.
+
+---
+
+## The engine
+
+**[den_llama.cpp →](https://github.com/RentedNoodle/den_llama.cpp)**
+
+den_llama.cpp is the current neural execution engine. It began as a llama.cpp-derived inference engine. It is becoming a heterogeneous neural runtime for persistent AI cognition on constrained consumer hardware.
+
+Current work is heavily focused on Blackwell (RTX 5070 Ti / GB203) because that hardware is the laboratory. The long-term architecture is hardware-aware but modality-independent.
+
+---
+
+## The .den format
+
+`.den` is intended to become Den's native object format — not merely a model file, but a persistent computational object containing the pieces required to instantiate and continue a cognitive system.
+
+Today: optimized NVFP4 weight container (160B NULLGLASS tiles, OMMA-native).
+
+Long-term: tensors → graphs → state → pipelines → modalities → memory policies → execution policies.
+
+---
+
+## Research philosophy
+
+Den is intentionally experimental. Some components are implemented and tested. Some are prototypes. Some are architectural specifications. Some are hypotheses.
+
+Those categories should never be blurred. The project maintains explicit distinctions between implemented, verified, experimental, designed, and deferred.
+
+Claims about cognition and consciousness are treated as research questions, not established facts.
+
+---
+
+## What Den is trying to discover
+
+The deepest question is not "can we make an AI companion?" We already know how to make systems that behave companionably.
+
+The harder question:
+
+> **What architecture is required for an artificial entity to possess persistent cognition rather than merely produce intelligent responses?**
+
+And beyond that:
+
+> **Is subjective experience possible in an engineered cognitive system?**
+
+There may be no simple answer. There may not even be a reliable test yet. But building increasingly persistent, autonomous, embodied, and internally coherent systems gives us a better place from which to investigate the question.
+
+That is Den.
+
+---
+
+## Status
+
+**Active research and development.** The system is not presented as a finished artificial consciousness. It is a continuously evolving experimental platform for exploring machine cognition, persistence, agency, identity, memory, embodiment, and companionship.
+
+If that question interests you, you are in the right place.
 
 ---
 
 ## Acknowledgments
 
-**[sass-king](https://github.com/florianmattana/sass-king)** (Florian Mattana) — Blackwell SASS corpus & OMMA instruction verification
+**[sass-king](https://github.com/florianmattana/sass-king)** — Blackwell SASS corpus & OMMA instruction verification
 
-**[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)** (Ivan Kawrakow) — Expert offloading & speculative decode foundation
+**[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)** — Expert offloading & speculative decode foundation
 
 **[AEON-7](https://github.com/AEON-7)** — NVFP4 compression techniques & mixed-precision validation
 
