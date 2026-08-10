@@ -294,13 +294,25 @@ If that question interests you, you are in the right place.
 
 ## Acknowledgments
 
-**[sass-king](https://github.com/florianmattana/sass-king)**: Blackwell SASS corpus & OMMA instruction verification
+**[llama.cpp](https://github.com/ggerganov/llama.cpp)** (Georgi Gerganov): The foundation. Without llama.cpp's ggml, CUDA backend, and quantized inference architecture, den_llama.cpp would not exist.
 
-**[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)**: Expert offloading & speculative decode foundation
+**[BeeLlama](https://github.com/Intelligent-Internet-Of-Engineers/beellama.cpp)**: KVarN KV cache (variance-normalized, 1M context proven on Ornith 35B at 24GB), precision tail research (1024-token optimal), 413-config ladder. Proved that 4-bit KV cache can be empirically lossless with the right architectural choices. Directly influenced our precision tail upgrade (256 to 1024) and NVFP4 KV methodology.
 
-**[AEON-7](https://github.com/AEON-7)**: NVFP4 compression techniques & mixed-precision validation
+**[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)** (Ivan Kawrakow): Expert offloading (ncmoe), speculative decode, and MXFP4/NVFP4 quantized inference patterns. The 3-tier expert staging architecture (static/selective/deferred) originated here.
 
-**[Project NOMAD](https://github.com/crosstalk-solutions/project-nomad)**: Knowledge base architecture & entity-linked memory systems
+**[unsloth](https://unsloth.ai/)**: NVFP4 weight quantization research. Proved 2.5x speedup via OMMA tensor cores for 4-bit weights. Their work established that NVFP4 belongs on FFN weights, not attention activations (which informed our OMMA role-gating).
+
+**[sass-king](https://github.com/florianmattana/sass-king)** (Florian Mattana): Blackwell SASS corpus & OMMA instruction verification. Validated our OMMA.SF.16864 PTX against hardware behavior.
+
+**[quadbit](https://github.com/quadbit-org/quadbit)**: TMA + mbarrier patterns on sm_120a (BSD-3). Confirmed that basic TMA and Thread Block Clusters work on consumer Blackwell before we tested it ourselves.
+
+**[BlackweLLM](https://github.com/blackwellm-org/blackwellm)** (MIT): CUDA graph research for LLM inference, conditional node patterns for dynamic dispatch.
+
+**[AEON-7](https://github.com/AEON-7)**: NVFP4 compression techniques & mixed-precision validation. Ornith model family.
+
+**[Qwen](https://github.com/QwenLM/Qwen3)**: Qwen3.5/3.6 model architectures with SSM/GDN recurrence and SAE-Res feature spaces. The architectural choices that make FP4-tolerant KV cache possible (RMSNorm throughout, normalized activations).
+
+**[Project NOMAD](https://github.com/crosstalk-solutions/project-nomad)**: Knowledge base architecture & entity-linked memory systems.
 
 ---
 
