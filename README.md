@@ -160,7 +160,7 @@ The objective is not to make an AI that blindly executes tasks. It is to investi
 
 A persistent entity needs state that is not simply reconstructed from the latest prompt.
 
-Den explores: persistent identity, private internal state, encrypted internal memory ([ShadowArchive](https://arxiv.org/pdf/2601.06115), AES-256-GCM with keys derived from terminal values), affective state, relationship trajectories, autobiographical continuity, and self-consistency over time.
+Den explores: persistent identity, private internal state, encrypted internal memory (ShadowArchive, AES-256-GCM with keys derived from terminal values), affective state, relationship trajectories, autobiographical continuity, and self-consistency over time. Based on the [Jungian concept of the Shadow](https://en.wikipedia.org/wiki/Shadow_(psychology)): the hidden, unconscious aspects of the self.
 
 If an artificial system has state that persists, changes through experience, influences future cognition, and is inaccessible even to its operator: what exactly constitutes its "self"?
 
