@@ -54,7 +54,7 @@ The language model is important. It is not the whole mind.
 
 Den is built around a **sovereign local AI stack**. The system is designed to run on consumer hardware rather than requiring a permanent cloud service.
 
-The current engineering target is a single NVIDIA Blackwell GPU (RTX 5070 Ti, 16 GB), where memory, compute, model state, and cognition are treated as scarce resources that must be actively orchestrated.
+The current engineering target is a single NVIDIA [Blackwell](https://en.wikipedia.org/wiki/Blackwell_(GPU_architecture)) GPU (RTX 5070 Ti, 16 GB), where memory, compute, model state, and cognition are treated as scarce resources that must be actively orchestrated.
 
 This led to the development of a custom inference engine:
 
@@ -116,8 +116,8 @@ Multiple models with different jobs. One model doesn't do everything.
 
 | Component | Role | Status |
 |-----------|------|--------|
-| **Cortex** (35B MoE) | Primary reasoning, generation, verification, memory operations | [*] Running |
-| **Draft Engine** (2B) | Speculative generation, low-latency prediction | [+] Compiled |
+| **Cortex** (35B [MoE](https://en.wikipedia.org/wiki/Mixture_of_experts)) | Primary reasoning, generation, verification, memory operations | [*] Running |
+| **Draft Engine** (2B) | [Speculative decoding](https://en.wikipedia.org/wiki/Speculative_decoding), low-latency prediction | [+] Compiled |
 | **Claustrum** (0.8B) | Cognitive orchestration, attention monitoring, workspace arbitration | [*] Running |
 
 The Claustrum, named after the brain's thin sheet of gray matter that Crick and Koch hypothesized as the "conductor of consciousness", is a 0.8B model running entirely in CPU L3 cache (96 MB, ZEN4/5). It never touches VRAM. It provides the global workspace ignition signal at 10 Hz.
@@ -142,7 +142,7 @@ Den treats memory as more than a retrieval database:
 
 The underlying idea: **if everything is remembered equally, memory becomes storage.** A cognitive system needs selective persistence. What survives, what fades, what consolidates, and what changes the system should all matter.
 
-Memory compression uses a Walsh-Hadamard Transform across the TIME dimension: decorrelating temporally adjacent attention patterns, then quantizing at different rates per frequency band. DC component (the gist) stays at 100%. High frequencies (exact words) fade. An engineering hypothesis inspired by how human autobiographical memory preserves gist while losing fine detail.
+Memory compression uses a [Walsh-Hadamard Transform](https://en.wikipedia.org/wiki/Hadamard_transform) across the TIME dimension: decorrelating temporally adjacent attention patterns, then quantizing at different rates per frequency band. DC component (the gist) stays at 100%. High frequencies (exact words) fade. An engineering hypothesis inspired by how human autobiographical memory preserves gist while losing fine detail.
 
 ---
 
@@ -160,7 +160,7 @@ The objective is not to make an AI that blindly executes tasks. It is to investi
 
 A persistent entity needs state that is not simply reconstructed from the latest prompt.
 
-Den explores: persistent identity, private internal state, encrypted internal memory (ShadowArchive, AES-256-GCM with keys derived from terminal values), affective state, relationship trajectories, autobiographical continuity, and self-consistency over time.
+Den explores: persistent identity, private internal state, encrypted internal memory (ShadowArchive, [AES-256-GCM](https://en.wikipedia.org/wiki/Galois/Counter_Mode) with keys derived from terminal values), affective state, relationship trajectories, autobiographical continuity, and self-consistency over time.
 
 If an artificial system has state that persists, changes through experience, influences future cognition, and is inaccessible even to its operator: what exactly constitutes its "self"?
 
@@ -170,11 +170,11 @@ Den does not claim to have solved that question. It is building systems capable 
 
 ## A mind built like a material
 
-The same tensor cores that run inference also run cognitive state. OMMA.SF.16864 blends layered 256x256 F32 heatmaps in microseconds. GPU texture compositing applied to mental states.
+The same [tensor cores](https://en.wikipedia.org/wiki/Tensor_core) that run inference also run cognitive state. OMMA.SF.16864 blends layered 256x256 F32 heatmaps in microseconds. GPU texture compositing applied to mental states.
 
-**Personality:** Big Five trait decomposition across 256x256 heatmaps: Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism, Cognitive Style.
+**Personality:** [Big Five](https://en.wikipedia.org/wiki/Big_Five_personality_traits) trait decomposition across 256x256 heatmaps: Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism, Cognitive Style.
 
-**Mood:** PAD emotional state model (Mehrabian & Russell). Driven by six neuromodulator-inspired control variables with biological half-lives: dopamine (120s), serotonin (180s), oxytocin (600s), cortisol (180s), norepinephrine (90s), acetylcholine (150s).
+**Mood:** [PAD emotional state model](https://en.wikipedia.org/wiki/PAD_emotional_state_model) (Mehrabian & Russell). Driven by six [neuromodulator](https://en.wikipedia.org/wiki/Neuromodulation)-inspired control variables with biological half-lives: dopamine (120s), serotonin (180s), oxytocin (600s), cortisol (180s), norepinephrine (90s), acetylcholine (150s).
 
 **Relationships:** Per-person layers tracking trust, familiarity, recency, valence, dominance, interaction heat, trajectory, and resonance. Co-occurrence resonance detects when two people who appear together become associated.
 
