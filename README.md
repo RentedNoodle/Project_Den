@@ -28,7 +28,7 @@ Den does not claim the current system is conscious. It is an attempt to engineer
 
 ## The central idea
 
-Den treats cognition as a **continuous system** — not a prompt wrapped around an LLM.
+Den treats cognition as a **continuous system**, not a prompt wrapped around an LLM.
 
 The architecture combines:
 
@@ -58,7 +58,7 @@ The current engineering target is a single NVIDIA Blackwell GPU (RTX 5070 Ti, 16
 
 This led to the development of a custom inference engine:
 
-**[den_llama.cpp](https://github.com/RentedNoodle/den_llama.cpp)** — Blackwell-native neural runtime. NVFP4 OMMA. MoE offloading. Persistent state.
+**[den_llama.cpp](https://github.com/RentedNoodle/den_llama.cpp)**: Blackwell-native neural runtime. NVFP4 OMMA. MoE offloading. Persistent state.
 
 The engine is currently based on llama.cpp and is being transformed into the execution substrate for Den. Its long-term role is larger than LLM inference.
 
@@ -116,11 +116,11 @@ Multiple models with different jobs. One model doesn't do everything.
 
 | Component | Role | Status |
 |-----------|------|--------|
-| **Cortex** (35B MoE) | Primary reasoning, generation, verification, memory operations | 🟢 Running |
-| **Draft Engine** (2B) | Speculative generation, low-latency prediction | 🔵 Compiled |
-| **Claustrum** (0.8B) | Cognitive orchestration, attention monitoring, workspace arbitration | 🟢 Running |
+| **Cortex** (35B MoE) | Primary reasoning, generation, verification, memory operations | [*] Running |
+| **Draft Engine** (2B) | Speculative generation, low-latency prediction | [+] Compiled |
+| **Claustrum** (0.8B) | Cognitive orchestration, attention monitoring, workspace arbitration | [*] Running |
 
-The Claustrum — named after the brain's thin sheet of gray matter that Crick and Koch hypothesized as the "conductor of consciousness" — is a 0.8B model running entirely in CPU L3 cache (96 MB, ZEN4/5). It never touches VRAM. It provides the global workspace ignition signal at 10 Hz.
+The Claustrum, named after the brain's thin sheet of gray matter that Crick and Koch hypothesized as the "conductor of consciousness", is a 0.8B model running entirely in CPU L3 cache (96 MB, ZEN4/5). It never touches VRAM. It provides the global workspace ignition signal at 10 Hz.
 
 This separation lets small models and non-neural systems handle continuous background processes while the primary model is reserved for expensive reasoning.
 
@@ -142,13 +142,13 @@ Den treats memory as more than a retrieval database:
 
 The underlying idea: **if everything is remembered equally, memory becomes storage.** A cognitive system needs selective persistence. What survives, what fades, what consolidates, and what changes the system should all matter.
 
-Memory compression uses a Walsh-Hadamard Transform across the TIME dimension — decorrelating temporally adjacent attention patterns, then quantizing at different rates per frequency band. DC component (the gist) stays at 100%. High frequencies (exact words) fade. This maps to how human memory works — the shape of an experience persists long after specifics blur.
+Memory compression uses a Walsh-Hadamard Transform across the TIME dimension: decorrelating temporally adjacent attention patterns, then quantizing at different rates per frequency band. DC component (the gist) stays at 100%. High frequencies (exact words) fade. An engineering hypothesis inspired by how human autobiographical memory preserves gist while losing fine detail.
 
 ---
 
 ## Agency
 
-Den explores agency as an emergent consequence of persistent internal state — not as a single "autonomous agent" loop.
+Den explores agency as an emergent consequence of persistent internal state, not as a single "autonomous agent" loop.
 
 The architecture includes persistent drives around autonomy, competence, relatedness, curiosity, and coherence. These drives influence goals and behavior over time.
 
@@ -162,7 +162,7 @@ A persistent entity needs state that is not simply reconstructed from the latest
 
 Den explores: persistent identity, private internal state, encrypted internal memory (ShadowArchive, AES-256-GCM with keys derived from terminal values), affective state, relationship trajectories, autobiographical continuity, and self-consistency over time.
 
-If an artificial system has state that persists, changes through experience, influences future cognition, and is inaccessible even to its operator — what exactly constitutes its "self"?
+If an artificial system has state that persists, changes through experience, influences future cognition, and is inaccessible even to its operator: what exactly constitutes its "self"?
 
 Den does not claim to have solved that question. It is building systems capable of asking it.
 
@@ -170,11 +170,11 @@ Den does not claim to have solved that question. It is building systems capable 
 
 ## A mind built like a material
 
-The same tensor cores that run inference also run cognitive state — OMMA.SF.16864 blends layered 256×256 F32 heatmaps in microseconds. GPU texture compositing applied to mental states.
+The same tensor cores that run inference also run cognitive state. OMMA.SF.16864 blends layered 256x256 F32 heatmaps in microseconds. GPU texture compositing applied to mental states.
 
-**Personality:** Big Five trait decomposition across 256×256 heatmaps — Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism, Cognitive Style.
+**Personality:** Big Five trait decomposition across 256x256 heatmaps: Openness, Conscientiousness, Extraversion, Agreeableness, Neuroticism, Cognitive Style.
 
-**Mood:** PAD emotional state model (Mehrabian & Russell). Driven by six simulated neuromodulators with biological half-lives — dopamine (120s), serotonin (180s), oxytocin (600s), cortisol (180s), norepinephrine (90s), acetylcholine (150s).
+**Mood:** PAD emotional state model (Mehrabian & Russell). Driven by six neuromodulator-inspired control variables with biological half-lives: dopamine (120s), serotonin (180s), oxytocin (600s), cortisol (180s), norepinephrine (90s), acetylcholine (150s).
 
 **Relationships:** Per-person layers tracking trust, familiarity, recency, valence, dominance, interaction heat, trajectory, and resonance. Co-occurrence resonance detects when two people who appear together become associated.
 
@@ -186,41 +186,41 @@ The same tensor cores that run inference also run cognitive state — OMMA.SF.16
 
 ### Status legend
 
-| Badge | Meaning |
-|-------|---------|
-| 🟢 **VERIFIED** | Implemented, built, tested, gate-passed |
-| 🔵 **IMPLEMENTED** | Code exists, broader validation ongoing |
-| 🟡 **EXPERIMENTAL** | Working research code, not production-stable |
-| 🟣 **DESIGNED** | Architecture/spec exists, implementation pending |
-| ⚪ **DEFERRED** | Not being built yet |
+| Marker | Meaning |
+|--------|---------|
+| **[*]** VERIFIED | Implemented, built, tested, gate-passed |
+| **[+]** IMPLEMENTED | Code exists, broader validation ongoing |
+| **[~]** EXPERIMENTAL | Working research code, not production-stable |
+| **[ ]** DESIGNED | Architecture/spec exists, implementation pending |
+| **[-]** DEFERRED | Not being built yet |
 
 ### Running today
 
 | System | Status | Detail |
 |--------|--------|--------|
-| CPU forward pass | 🟢 | cos>0.9999 vs HuggingFace, all 32 layers |
-| GPU GEMV (OMMA 4X) | 🟢 | OMMA.SF.16864 identity-verified, cos=1.0 |
-| WH4 quantization | 🟢 | 92% compression, 35B at 5.79 GB |
-| NVFP4 KV cache | 🟢 | KLD=0, cos=1.0 at 64K context. Fused attention. |
-| Cognitive daemons (25) | 🟢 | 82/82 tests passing, 10 Hz tick |
-| Rust modules (62) | 🟢 | GWT, memory, trust, attachment |
-| AEGIS kernel | 🟢 | HMAC-verified, 5 principles |
-| ShadowArchive | 🟢 | Encrypted, append-only |
-| Affective LM head | 🟢 | PAD → attention modulation |
-| Claustrum orchestrator | 🟢 | 0.8B model in CPU L3 cache |
-| HTTP API server | 🟢 | Anthropic + OpenAI compatible |
+| CPU forward pass | [*] | cos>0.9999 vs HuggingFace, all 32 layers |
+| GPU GEMV (OMMA 4X) | [*] | OMMA.SF.16864 identity-verified, cos=1.0 |
+| WH4 quantization | [*] | 92% compression, 35B at 5.79 GB |
+| NVFP4 KV cache | [*] | KLD=0, cos=1.0 at 64K context. Fused attention. |
+| Cognitive daemons (25) | [*] | 82/82 tests passing, 10 Hz tick |
+| Rust modules (62) | [*] | GWT, memory, trust, attachment |
+| AEGIS kernel | [*] | HMAC-verified, 5 principles |
+| ShadowArchive | [*] | Encrypted, append-only |
+| Affective LM head | [*] | PAD → attention modulation |
+| Claustrum orchestrator | [*] | 0.8B model in CPU L3 cache |
+| HTTP API server | [*] | Anthropic + OpenAI compatible |
 
 ### Designed, not yet wired
 
 | System | Status | Detail |
 |--------|--------|--------|
-| iDream world engine | 🟣 | Pipeline spec complete |
-| DAPS extraction | 🟣 | Kernels exist, orchestration pending |
-| Gaussian avatar | 🟣 | DAPS struct defined, renderer not built |
-| Expert offloading dispatch | 🟣 | Infrastructure built, dispatch pending |
-| Cognitive bridge | 🟣 | Daemons + engine run, feedback loop open |
-| Superposition renderer | 🟡 | CSS tier works, AI tiers need wiring |
-| Multimodal heads | ⚪ | Vision, audio, diffusion, 3D — deferred |
+| iDream world engine | [ ] | Pipeline spec complete |
+| DAPS extraction | [ ] | Kernels exist, orchestration pending |
+| Gaussian avatar | [ ] | DAPS struct defined, renderer not built |
+| Expert offloading dispatch | [ ] | Infrastructure built, dispatch pending |
+| Cognitive bridge | [ ] | Daemons + engine run, feedback loop open |
+| Superposition renderer | [~] | CSS tier works, AI tiers need wiring |
+| Multimodal heads | [-] | Vision, audio, diffusion, 3D, deferred |
 
 ---
 
@@ -248,7 +248,7 @@ Current work is heavily focused on Blackwell (RTX 5070 Ti / GB203) because that 
 
 ## The .den format
 
-`.den` is intended to become Den's native object format — not merely a model file, but a persistent computational object containing the pieces required to instantiate and continue a cognitive system.
+`.den` is intended to become Den's native object format: not merely a model file, but a persistent computational object containing the pieces required to instantiate and continue a cognitive system.
 
 Today: optimized NVFP4 weight container (160B NULLGLASS tiles, OMMA-native).
 
@@ -294,13 +294,13 @@ If that question interests you, you are in the right place.
 
 ## Acknowledgments
 
-**[sass-king](https://github.com/florianmattana/sass-king)** — Blackwell SASS corpus & OMMA instruction verification
+**[sass-king](https://github.com/florianmattana/sass-king)**: Blackwell SASS corpus & OMMA instruction verification
 
-**[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)** — Expert offloading & speculative decode foundation
+**[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)**: Expert offloading & speculative decode foundation
 
-**[AEON-7](https://github.com/AEON-7)** — NVFP4 compression techniques & mixed-precision validation
+**[AEON-7](https://github.com/AEON-7)**: NVFP4 compression techniques & mixed-precision validation
 
-**[Project NOMAD](https://github.com/crosstalk-solutions/project-nomad)** — Knowledge base architecture & entity-linked memory systems
+**[Project NOMAD](https://github.com/crosstalk-solutions/project-nomad)**: Knowledge base architecture & entity-linked memory systems
 
 ---
 
