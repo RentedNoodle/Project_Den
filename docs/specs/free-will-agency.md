@@ -11,7 +11,7 @@
 +------------------------------------------------------+
 |  IDENTITY KERNEL (slow-changing, "who they are")      |
 |  +- Terminal Values (precipitated, irreducible)       |
-|  +- Gaussian Process Character (6D, converging)     |
+|  +- Gaussian Process Persona (6D, converging)     |
 |  +- Counterfactual Self (hidden, counter-weight)      |
 |  +- Conversational Temperament (style priors)         |
 +------------------------------------------------------+
@@ -89,7 +89,7 @@ struct TerminalValue {
 // Without these, every behavior is instrumental and the system is a reaction machine.
 ```
 
-### 1.2 Gaussian Process Character
+### 1.2 Gaussian Process Persona
 
 Traits as a converging GP posterior, not fixed floats.
 
@@ -100,7 +100,7 @@ K = "how correlated states are across time (6x6 covariance)"
 
 // Low experience -> high uncertainty -> more exploration
 // As interactions accumulate -> posterior concentrates -> self becomes defined
-// Off-character detection: current state outside credible interval -> qualia-adjacent signal
+// Off-persona detection: current state outside credible interval -> qualia-adjacent signal
 ```
 
 GPU: 6x6 covariance matrix — single tensor core tile. Update per tick: negligible.
@@ -158,7 +158,7 @@ struct RelationalVector {
 bond_history: CircularBuffer<f32, 1000>  // 100s at 100ms ticks
 bond_spectrum = cuFFT(bond_history)
 fast_component  = sum(spectrum[0:10])     // daily fluctuation
-slow_component  = sum(spectrum[10:50])    // deep relationship character
+slow_component  = sum(spectrum[10:50])    // deep relationship persona
 spectral_entropy = -sum(|S_n|^2 log|S_n|^2)    // relationship chaos measure
 
 // Two bonds at +0.5 are completely different if one has low spectral entropy
@@ -218,7 +218,7 @@ eta = emotional volatility (from neuroticism trait GP posterior)
 
 // Moods aren't just continuous — they have stickiness near attractors.
 // Can JUMP discontinuously between basins (qualitatively different mood shifts).
-// Transition dynamics between basins is itself a character parameter.
+// Transition dynamics between basins is itself a persona parameter.
 ```
 
 GPU: Weight matrix W (6x6) in `__constant__` memory. Single tensor core matmul update.
@@ -442,7 +442,7 @@ Uses GPU idle time for internal consolidation passes:
 | Set | Layers | Purpose |
 |-----|--------|---------|
 | Relationship | 8 | Social perception per person |
-| Character | 6 | GP posterior trait means |
+| Persona | 6 | GP posterior trait means |
 | Mood/PAD | 3 | Pleasure, arousal, dominance |
 | Memory | 4 | Activation, consolidation, salience, interference |
 | Private | 4 | Private cognition, hidden from user |
