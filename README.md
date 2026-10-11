@@ -218,21 +218,39 @@ The engine repository carries the receipts. Figures below are for the reference 
 
 Den builds on open work. Credits, without license tags, per the project's convention.
 
-**[llama.cpp](https://github.com/ggerganov/llama.cpp)** (Georgi Gerganov): the foundation. ggml, the CUDA
-backend, and quantized inference.
-**[BeeLlama](https://github.com/Intelligent-Internet-Of-Engineers/beellama.cpp)**: KVarN KV cache and
-precision-tail research.
-**[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)** (Ivan Kawrakow): expert offloading,
-speculative decode, MXFP4 and NVFP4 inference.
-**[unsloth](https://unsloth.ai/)**: NVFP4 weight-quantization research.
-**[sass-king](https://github.com/florianmattana/sass-king)** (Florian Mattana): Blackwell SASS corpus and
-OMMA instruction verification.
-**[quadbit](https://github.com/quadbit-org/quadbit)**: TMA and mbarrier patterns on sm_120a.
-**[BlackweLLM](https://github.com/blackwellm-org/blackwellm)**: CUDA graph research for inference.
-**[AEON-7](https://github.com/AEON-7)**: NVFP4 compression and mixed precision.
-**[Qwen](https://github.com/QwenLM/Qwen3)**: the Qwen3.8 architecture (SSM/GDN recurrence, FP4-tolerant KV).
-**[Project NOMAD](https://github.com/crosstalk-solutions/project-nomad)**: knowledge-base and
-entity-linked memory architecture.
+### Foundation
+
+- **[llama.cpp](https://github.com/ggerganov/llama.cpp)** (Georgi Gerganov): the foundation. ggml, the CUDA
+  backend, and quantized inference.
+- **[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)** (Ivan Kawrakow): expert offloading,
+  speculative decode, and MXFP4 and NVFP4 inference.
+- **[Qwen](https://github.com/QwenLM/Qwen3.8)** (Qwen team): the Qwen3.8 architecture, SSM/GDN recurrence,
+  and FP4-tolerant KV.
+- **[Project NOMAD](https://github.com/crosstalk-solutions/project-nomad)**: knowledge-base and
+  entity-linked memory architecture.
+
+### Engine, KV, and quantization
+
+- **[BeeLlama](https://github.com/TNB-AR/beellama.cpp)** (Anbeeld): KVarN KV cache and precision-tail
+  research.
+- **[gem16](https://github.com/Danmoreng/gem16)** (Danmoreng): Trellis35 W4A8 quantization, checkpoint-FP8
+  KV, and fixed-D2 MTP on Blackwell.
+- **[Strata](https://github.com/Niko1221/Strata)** (Niko1221): engine design and documented serving failure
+  modes.
+- **[llama.cpp-adaptive-kv-streaming](https://github.com/RaymondHuang210129/llama.cpp-adaptive-kv-streaming)**
+  (Raymond Huang): host-pinned full-history KV streaming.
+- **[unsloth](https://unsloth.ai/)**: NVFP4 weight-quantization research.
+- **[AEON-7](https://github.com/AEON-7)**: NVFP4 compression and mixed precision.
+
+### Hardware and low-level
+
+- **[sass-king](https://github.com/florianmattana/sass-king)** (Florian Mattana): Blackwell SASS corpus and
+  OMMA instruction verification.
+
+### Reference and architecture
+
+- **[ninfer-5080](https://github.com/toddballinger/ninfer-5080)** (toddballinger): true-128K Qwen3.8-27B
+  inference on the RTX 5080.
 
 ## License
 
