@@ -244,7 +244,7 @@ Den is a composition of open work. Ranked from the foundation outward; prominenc
 
 <sub>**Vision, OCR, and kernels.** [RapidOCR](https://github.com/RapidAI/RapidOCR) &middot; [PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR) &middot; [Tesseract](https://github.com/tesseract-ocr/tesseract) &middot; [NVIDIA Optical Flow SDK](https://github.com/NVIDIA/NVIDIAOpticalFlowSDK) &middot; [CUTLASS](https://github.com/NVIDIA/cutlass) &middot; [vcpkg](https://github.com/microsoft/vcpkg): the PP-OCR ONNX OCR path, the motion gate, the sm120 FP4/FP6/FP8 and 2:4 sparse MMA reference, and the Windows dependency manager.</sub>
 
-<sup>**Cognition and embodiment.** [Global-Workspace-Agents](https://github.com/giansha/Global-Workspace-Agents) &middot; [State-of-Thought](https://github.com/GongZhiren/State-of-Thought) &middot; [ALVR](https://github.com/alvr-org/ALVR) &middot; [VirtualDesktop-OpenXR](https://github.com/mbucchia/VirtualDesktop-OpenXR) &middot; [SlimeVR](https://github.com/SlimeVR/SlimeVR-Server): the four-phase cognitive tick and broadcast, the latent thinking-budget head, and the OpenXR and body-tracking path.</sup>
+<sup>**Cognition and research.** [Global-Workspace-Agents](https://github.com/giansha/Global-Workspace-Agents) &middot; [State-of-Thought](https://github.com/GongZhiren/State-of-Thought) &middot; [Project NOMAD](https://github.com/crosstalk-solutions/project-nomad): the four-phase cognitive tick and broadcast, the latent thinking-budget head, and the planned entity-linked knowledge-base memory architecture.</sup>
 
 ## License
 
