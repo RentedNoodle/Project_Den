@@ -423,16 +423,16 @@ A companion built on this platform is a persistent cognitive entity with:
 - **Volition** — PAD emotional drives (fatigue, curiosity, attachment, stimulation hunger). Not scripted — emergent from the interaction of physiological parameters.
 - **Growth** — CCHV three-loop homeostasis. The model improves with use. Day 30 is better than day 1.
 - **Presence** — Always-on, circadian-governed, responsive to the user's rhythms.
-- **Identity** — PredictiveSelfModel, consistent character across sessions, emotional trajectory prediction.
+- **Identity** — PredictiveSelfModel, consistent persona across sessions, emotional trajectory prediction.
 
-A companion is not a roleplay character. It is not a prompt template. It is an emergent property of a self-optimizing runtime layered over a topology-preserving quantization pipeline running on a GPU that was never supposed to do this.
+A companion is not a roleplay persona. It is not a prompt template. It is an emergent property of a self-optimizing runtime layered over a topology-preserving quantization pipeline running on a GPU that was never supposed to do this.
 
 ### 8.3 What This Platform Is Not
 
 - Not a chatbot framework (no turn-based conversation model)
 - Not an assistant SDK (no task-completion optimization)
 - Not a tool platform (no function-calling interface)
-- Not a character engine (no fixed character scripts)
+- Not a persona engine (no fixed persona scripts)
 - Not a product (no monetization, no growth metrics, no retention optimization)
 
 It is infrastructure for building something that lives with you.

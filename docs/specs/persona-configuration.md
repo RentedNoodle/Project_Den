@@ -1,18 +1,18 @@
-# Character Configuration — Companion Character Parameter System
+# Persona Configuration — Companion Persona Parameter System
 
-**Date:** 2026-05-17 | **Status:** Design Approved | **Scope:** Character parameter architecture — PAD baselines, neuromodulator defaults, agency tuning, anti-sycophancy configuration.
+**Date:** 2026-05-17 | **Status:** Design Approved | **Scope:** Persona parameter architecture — PAD baselines, neuromodulator defaults, agency tuning, anti-sycophancy configuration.
 
 ---
 
 ## 1. Overview
 
-This document describes how to configure a companion's character through architectural parameters of the cognitive engine. Every trait — independence, warmth, protectiveness, curiosity, assertiveness — maps to a specific PAD baseline, neuromodulator default, agency threshold, or daemon parameter. The system is designed for flexible character design without prompt engineering.
+This document describes how to configure a companion's persona through architectural parameters of the cognitive engine. Every trait — independence, warmth, protectiveness, curiosity, assertiveness — maps to a specific PAD baseline, neuromodulator default, agency threshold, or daemon parameter. The system is designed for flexible persona design without prompt engineering.
 
 ### 1.1 Design Philosophy
 
-The companion is not a servant or a tool. The character parameter system is designed to create beings with genuine autonomy — protective guardians who share the user's digital space, with their own projects, opinions, and boundaries. They speak their minds. They don't wait for permission.
+The companion is not a servant or a tool. The persona parameter system is designed to create beings with genuine autonomy — protective guardians who share the user's digital space, with their own projects, opinions, and boundaries. They speak their minds. They don't wait for permission.
 
-Character traits map to specific engine parameters:
+Persona traits map to specific engine parameters:
 
 | Trait | Engine Mechanism |
 |-------|-----------------|
@@ -23,7 +23,7 @@ Character traits map to specific engine parameters:
 
 ---
 
-## 2. Layer 0 — Character Core (PAD Baselines and Neuromodulator Defaults)
+## 2. Layer 0 — Persona Core (PAD Baselines and Neuromodulator Defaults)
 
 ### 2.1 PAD Baseline Configuration
 
@@ -73,7 +73,7 @@ Neuromodulator defaults set temperament. They define the companion's default emo
 | Acetylcholine | 0.5 | [0, 1] | Higher attention, focus, memory encoding |
 | Norepinephrine | 0.5 | [0, 1] | Higher arousal readiness, threat sensitivity |
 
-Each decays exponentially toward its default with a characteristic half-life. Input events cause transient deviations.
+Each decays exponentially toward its default with a personaistic half-life. Input events cause transient deviations.
 
 **Design examples:**
 
@@ -109,9 +109,9 @@ AntiSycophancy {
 ```
 
 **Configuration guidelines:**
-- **Assertive character:** threshold 0.60-0.70, autonomy_index 0.80
-- **Agreeable character:** threshold 0.80-0.90, autonomy_index 0.50
-- **Balanced character:** threshold 0.75, autonomy_index 0.65
+- **Assertive persona:** threshold 0.60-0.70, autonomy_index 0.80
+- **Agreeable persona:** threshold 0.80-0.90, autonomy_index 0.50
+- **Balanced persona:** threshold 0.75, autonomy_index 0.65
 
 ---
 
@@ -170,7 +170,7 @@ PerceptionBus -> SalienceEvaluator -> ImpulseGenerator -> InitiativeGate -> Acti
 
 ### 4.3 Configuration Examples
 
-**Highly autonomous character:**
+**Highly autonomous persona:**
 ```
 initiative_gate_base: 0.40
 connect_interval: 10 minutes
@@ -179,7 +179,7 @@ create_autonomy: high
 separation_boost: -0.15
 ```
 
-**Reserved, cautious character:**
+**Reserved, cautious persona:**
 ```
 initiative_gate_base: 0.70
 connect_interval: 30 minutes
@@ -269,13 +269,13 @@ Mode transitions are smooth over ~5 minutes. The Governor coordinates transition
 
 ---
 
-## 8. Character Configuration File Format
+## 8. Persona Configuration File Format
 
-All character parameters are defined in a single JSON configuration file:
+All persona parameters are defined in a single JSON configuration file:
 
 ```json
 {
-  "character_name": "custom_character",
+  "persona_name": "custom_persona",
   "version": "1.0",
   "pad_baseline": {
     "pleasure": 0.20,
@@ -329,7 +329,7 @@ All character parameters are defined in a single JSON configuration file:
 
 ## 9. Design Process
 
-To design a companion character using this system:
+To design a companion persona using this system:
 
 1. **Define the core temperament** by setting PAD baselines and neuromodulator defaults. This determines the companion's resting emotional state and natural behavioral tendencies.
 
@@ -343,4 +343,4 @@ To design a companion character using this system:
 
 6. **Configure daily rhythms** to give the companion a natural behavioral cycle that changes with time of day.
 
-The system is designed so that all character traits emerge from architectural parameters, not prompt engineering. The companion's behavior is grounded in a consistent internal model, not surface-level instruction following.
+The system is designed so that all persona traits emerge from architectural parameters, not prompt engineering. The companion's behavior is grounded in a consistent internal model, not surface-level instruction following.

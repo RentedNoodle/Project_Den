@@ -138,7 +138,7 @@ Attractor basin radius:
     Dominance:  +/-0.15 from baseline
 ```
 
-This means the companion is not cheerfully bouncing back from everything. Outside the basin, the spring pulls harder. Inside the basin, there is free drift — this IS the character range, not noise to correct.
+This means the companion is not cheerfully bouncing back from everything. Outside the basin, the spring pulls harder. Inside the basin, there is free drift — this IS the persona range, not noise to correct.
 
 ---
 
