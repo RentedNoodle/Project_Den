@@ -220,37 +220,101 @@ Den builds on open work. Credits, without license tags, per the project's conven
 
 ### Foundation
 
-- **[llama.cpp](https://github.com/ggerganov/llama.cpp)** (Georgi Gerganov): the foundation. ggml, the CUDA
+- **[llama.cpp](https://github.com/ggml-org/llama.cpp)** (Georgi Gerganov): the foundation. ggml, the CUDA
   backend, and quantized inference.
 - **[ik_llama.cpp](https://github.com/ikawrakow/ik_llama.cpp)** (Ivan Kawrakow): expert offloading,
-  speculative decode, and MXFP4 and NVFP4 inference.
-- **[Qwen](https://github.com/QwenLM/Qwen3.8)** (Qwen team): the Qwen3.8 architecture, SSM/GDN recurrence,
-  and FP4-tolerant KV.
-- **[Project NOMAD](https://github.com/crosstalk-solutions/project-nomad)**: knowledge-base and
-  entity-linked memory architecture.
+  speculative decode, and the MXFP4 and NVFP4 inference lineage.
+- **[den_llama.cpp](https://github.com/RentedNoodle/den_llama.cpp)** (Project Den): the Blackwell-native
+  runtime this framework serves on.
+- **[NInfer](https://github.com/Neroued/ninfer)** (Neroued): the sm_120 inference engine the runtime
+  descends from.
+- **[Qwen](https://github.com/QwenLM/Qwen3.8)** (Qwen team): the Qwen3.8 hybrid architecture (gated-delta-net
+  plus attention) and FP4-tolerant KV.
 
 ### Engine, KV, and quantization
 
-- **[BeeLlama](https://github.com/TNB-AR/beellama.cpp)** (Anbeeld): KVarN KV cache and precision-tail
-  research.
+- **[BeeLlama](https://github.com/Anbeeld/beellama.cpp)** (Anbeeld): the KVarN KV cache, precision-tail
+  research, and the reasoning-loop guard.
+- **[Lobo](https://github.com/alectodescent/lobo-qwen38-16gb)** (alectodescent): the KVarN-on-Blackwell build
+  whose kernels Den carries byte-identical, and its measured K4V2 target-only baseline.
 - **[gem16](https://github.com/Danmoreng/gem16)** (Danmoreng): Trellis35 W4A8 quantization, checkpoint-FP8
-  KV, and fixed-D2 MTP on Blackwell.
-- **[Strata](https://github.com/Niko1221/Strata)** (Niko1221): engine design and documented serving failure
-  modes.
+  KV, fixed-D2 MTP, and resident execution plans on Blackwell.
+- **[Strata](https://github.com/Niko1221/Strata)** (Niko1221): the KV residency map, MoE expert-cache
+  admission, and documented serving failure modes.
+- **[KVMem](https://github.com/1314521gjy/ninfer-fusion-kvmem)** (1314521gjy; mirror
+  [qzshch/ninfer-kvmem](https://github.com/qzshch/ninfer-kvmem)): windowed KV retrieval, the prefix-identity
+  digest chain, and the logical-reservation KV ring Den ported to production.
 - **[llama.cpp-adaptive-kv-streaming](https://github.com/RaymondHuang210129/llama.cpp-adaptive-kv-streaming)**
-  (Raymond Huang): host-pinned full-history KV streaming.
-- **[unsloth](https://unsloth.ai/)**: NVFP4 weight-quantization research.
-- **[AEON-7](https://github.com/AEON-7)**: NVFP4 compression and mixed precision.
+  (Raymond Huang): the host-pinned full-history KV streaming path.
+- **[unsloth](https://github.com/unslothai/unsloth)** (Unsloth): NVFP4 weight-quantization research,
+  including the reference FP4 quantization of the ship model.
 
-### Hardware and low-level
+### Models and quantization lineage
 
-- **[sass-king](https://github.com/florianmattana/sass-king)** (Florian Mattana): Blackwell SASS corpus and
-  OMMA instruction verification.
+- **[Qwen3.8-27B](https://huggingface.co/Qwen/Qwen3.8-27B)** (Qwen team): the base model.
+- **[GSQ](https://github.com/IST-DASLab/GSQ) and [RCO](https://github.com/IST-DASLab/RCO)** (ISTA-DASLab):
+  the mixed-precision GSQ-RCO lineage the ship model is built from.
+- **[Qwen3.8-27B-NVFP4](https://huggingface.co/unsloth/Qwen3.8-27B-NVFP4)** (Unsloth): the FP4 reference the
+  GSQ-RCO line derives from.
+- **[Qwen3.8-27B-DFlash2](https://huggingface.co/z-lab/Qwen3.8-27B-DFlash2)** (z-lab): the DFlash2 draft
+  adapter.
+- **[Ternary-Bonsai-2-27B](https://huggingface.co/prism-ml/Ternary-Bonsai-2-27B-gguf)** (PrismML): the
+  ternary Qwen3.8 variant and its 2-bit weight format.
+- **[Ternary-Bonsai-2-27B-DFlash2](https://huggingface.co/ProCreations/Ternary-Bonsai-2-27B-DFlash2)**
+  (ProCreations): the Bonsai-trained MTP head and DFlash2 adapter.
 
-### Reference and architecture
+### Audio, TTS, and ASR
 
-- **[ninfer-5080](https://github.com/toddballinger/ninfer-5080)** (toddballinger): true-128K Qwen3.8-27B
-  inference on the RTX 5080.
+- **[qwentts.cpp](https://github.com/ServeurpersoCom/qwentts.cpp)** (Serveurperso; ggml ops from the
+  [ServeurpersoCom/ggml](https://github.com/ServeurpersoCom/ggml) fork): the live CPU TTS engine, its
+  streaming/cancel ABI, and the Snake and col2im fork ops.
+- **[Qwen3-ASR](https://github.com/QwenLM/Qwen3-ASR)** (Qwen team): the official ASR reference architecture
+  and the streaming rollback semantics.
+- **[Qwen3-TTS](https://github.com/QwenLM/Qwen3-TTS)** (Qwen team): the official TTS reference family.
+- **[audio.cpp](https://github.com/0xShug0/audio.cpp)** (ShugoAI): the Qwen3 ASR session, forced aligner, VAD
+  chunking, and word-timestamp path adopted for the transcription route.
+- **[qwen3-asr.cpp](https://github.com/predict-woo/qwen3-asr.cpp)** (predict-woo): the GGML ASR and
+  forced-aligner port and its explicit CPU-plus-GPU scheduler.
+- **[qwen-asr](https://github.com/antirez/qwen-asr)** (Salvatore Sanfilippo): the pure-C Qwen3-ASR
+  implementation used on the CPU ASR path.
+- **[faster-qwen3-tts](https://github.com/andimarafioti/faster-qwen3-tts)** (andimarafioti): streaming and
+  CUDA-graph replay over the qwentts.cpp backend.
+- **[qwen3-tts.cpp](https://github.com/predict-woo/qwen3-tts.cpp)** (predict-woo): the minimal GGML TTS port
+  and its frame-cache knobs.
+- **[qwen3_asr_rs](https://github.com/second-state/qwen3_asr_rs)** (Second State): the Rust ASR port and its
+  OpenAI transcription contract.
+
+### Vision, OCR, and optical flow
+
+- **[RapidOCR](https://github.com/RapidAI/RapidOCR)** (RapidAI): the CPU PP-OCR ONNX detector and recognizer
+  that is the primary OCR engine.
+- **[PaddleOCR](https://github.com/PaddlePaddle/PaddleOCR)** (PaddlePaddle): the PP-OCR models RapidOCR runs.
+- **[Tesseract](https://github.com/tesseract-ocr/tesseract)** (Ray Smith, Google): the secondary OCR engine
+  and its confidence signal.
+- **[NVIDIA Optical Flow SDK](https://github.com/NVIDIA/NVIDIAOpticalFlowSDK)** (NVIDIA): the NVOFA
+  optical-flow interface evaluated for the motion gate.
+- **[CUTLASS](https://github.com/NVIDIA/cutlass)** (NVIDIA): the sm120 FP4/FP6/FP8 MMA and 2:4 sparse MMA
+  reference for the tensor-core kernels.
+
+### Cognition and AI research
+
+- **[Global-Workspace-Agents](https://github.com/giansha/Global-Workspace-Agents)** (giansha): the four-phase
+  cognitive tick, broadcast, entropy drive, and core self behind the attention arbiter.
+- **[State-of-Thought](https://github.com/GongZhiren/State-of-Thought)** (GongZhiren): the latent
+  thinking-budget head.
+
+### VR and embodiment
+
+- **[ALVR](https://github.com/alvr-org/ALVR)** (alvr-org): the OpenXR client and host skeleton, the wire
+  protocol, and the FaceTracking2FB blendshapes.
+- **[VirtualDesktop-OpenXR](https://github.com/mbucchia/VirtualDesktop-OpenXR)** (Matthieu Bucchianeri): the
+  OpenXR runtime base for the host path.
+- **[SlimeVR Server](https://github.com/SlimeVR/SlimeVR-Server)** (SlimeVR): the full-body-tracking server
+  and tracker protocol.
+
+### Tooling
+
+- **[vcpkg](https://github.com/microsoft/vcpkg)** (Microsoft): dependency management for the Windows build.
 
 ## License
 
