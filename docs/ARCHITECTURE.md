@@ -1,8 +1,11 @@
 # Project Den — Architecture
 
-**Date:** 2026-10-10 | **Status:** In development — live on Qwen3.8-27B v2.1; Blackwell NVFP4/OMMA dispatch landing
+> [!IMPORTANT]
+> **Project Den is under active development and has not been released.** Public availability is limited to the engine source/build work; the integrated companion/application is not a public release. This document is design context, not a release statement. Current status: [README](../README.md).
 
-> Ground truth for what is built vs designed is the README's "What's built vs what's designed" table. This document is the engineering view of the pipeline and hardware; where the two disagree, the README wins.
+**Date:** 2026-10-10 | **Status:** In development — private prototype on Qwen3.8-27B v2.1; not released. Blackwell NVFP4/OMMA dispatch is in progress.
+
+> Ground truth for what is built vs designed is the README's current Status section. This document is the engineering view of the pipeline and hardware; where the two disagree, the README wins.
 
 Project Den is a GPU-resident platform for sovereign AI companions. This document describes how it actually fits together — the pipeline, the container, the model stack, and the hardware it runs on. It complements the README's product narrative with the engineering view.
 
@@ -60,12 +63,12 @@ Turns external model formats into `.den`. Not a copy tool — a **semantic-prese
 
 ## The Three-Model Cognitive Stack
 
-Consciousness is not one model. It is a division of labor across three tiers, each sized to its role:
+Cognition is not one model. It is a division of labor across three tiers, each sized to its role:
 
 | Model | Role | Location | Status |
 |-------|------|----------|--------|
-| **Cortex** (Qwen3.8-27B v2.1, dense) | Authority — generation, verification, memory operations | VRAM | Running |
-| **MTP head** (in-model) | Multi-token prediction — speculative decode | VRAM | Validated |
+| **Cortex** (Qwen3.8-27B v2.1, dense) | Authority — generation, verification, memory operations | VRAM | Private development |
+| **MTP head** (in-model) | Multi-token prediction — speculative decode | VRAM | Public engine |
 | **Claustrum** (0.8B) | Orchestrator — attention monitoring, GWT ignition, memory triggers | CPU | Designed |
 
 The Claustrum is designed to run entirely in CPU L3 cache, never touching VRAM, and to drive the global-workspace ignition signal at 10 Hz — a cognitive layer with a zero-VRAM budget, running on silicon the GPU never needs.

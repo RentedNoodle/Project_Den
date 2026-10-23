@@ -1,8 +1,11 @@
 # Project Den — Roadmap
 
-**Date:** 2026-10-10 | **Honest status:** Live companion stack on Qwen3.8-27B v2.1; Blackwell NVFP4/OMMA dispatch and long-context hardening in progress.
+> [!IMPORTANT]
+> **Project Den is under active development and has not been released.** Public availability is limited to the engine source/build work; the integrated companion/application is not a public release. Status entries in this roadmap are historical or as-target design, not release announcements. Current status: [README](../README.md).
 
-> This roadmap is the long-range view and is partly historical (the "nine circles" were framed around an earlier 35B MoE teacher). **The README's "What's built vs what's designed" table is the ground truth at any moment.** Read this document for trajectory, not for current status.
+**Date:** 2026-10-10 | **Historical status:** private companion stack on Qwen3.8-27B v2.1; not a public release. Blackwell NVFP4/OMMA dispatch and long-context hardening in progress.
+
+> This roadmap is the long-range view and is partly historical (the "nine circles" were framed around an earlier 35B MoE teacher). **The README's current Status section is the ground truth at any moment.** Read this document for trajectory, not for current status.
 
 ## The Nine Circles
 
@@ -42,6 +45,6 @@ The project was blocked for months on **Circle 1** — the GPU forward pass prod
 - [x] 35B MoE decode-loop root cause found and fixed
 - [x] NVFP4 tile format proven in silicon (identity cos=1.0)
 - [ ] Real tensor-core OMMA dispatch producing coherent output end-to-end
-- [ ] Public release
+- [ ] Public companion release (future decision; the public engine source line is separate)
 
 Nothing else in the roadmap moves until the last two boxes are ticked.

@@ -1,5 +1,8 @@
 # PROJECT DEN — Full Vision
 
+> [!IMPORTANT]
+> **Project Den is under active development and has not been released.** Public availability is limited to the engine source/build work; the integrated companion/application is not a public release. This is a vision document: feature descriptions are goals or as-target design unless the current [README](../README.md) marks them implemented.
+
 **Date:** 2026-05-26 | **Phase:** Engine Validation & GPU Pipeline Debugging
 **Purpose:** The anchor document. Stitches the engine, companion infrastructure, quantization theory, model strategy, runtime design, and platform philosophy into one document. Nothing siloed. Everything connected.
 
@@ -175,7 +178,7 @@ The Rust runtime is the companion's nervous system. It runs alongside the CUDA e
 
 ### 4.2 Cognitive Physiology
 
-Companions built on this platform have a body, not just a brain. The physiological modules create the illusion of presence:
+Companions built on this platform have a body, not just a brain. The physiological modules create a consistent, perceptible presence:
 
 | Module | What It Models |
 |--------|---------------|
@@ -558,7 +561,7 @@ THEN:    35B-A3B MoE pipeline design and implementation
 ## 11. Three Layers of Maturity
 
 ```
-Layer 1 — dengine (RUNNING, DEBUGGING)
+Layer 1 — dengine (PRIVATE DEVELOPMENT, DEBUGGING)
   dengine/src/*, dengine/include/*, tools/compare_activations.py
   Pipeline launches. Weight upload in validation. 5 bugs fixed. 3 features missing.
 
@@ -579,4 +582,4 @@ The gap between Layer 1 and Layers 2/3 is the active frontier. Everything depend
 ---
 
 *PROJECT_DEN_VISION.md — 2026-05-26 | 5,433 OMMA.SF.16864 | 144 optimizations | 77 CUDA kernels | 35+ specs | dengine PRIMARY*
-*GB203-300-A1 SM120. Windows native. Pipeline debugging. Public release pending engine validation.*
+*GB203-300-A1 SM120. Windows native. Pipeline debugging. Public companion release pending engine validation and a future release decision; the public engine source line is separate.*
